@@ -51,3 +51,35 @@ if len(sys.argv) > 2:
         command_number = sys.argv[2:number_of_commands]
         for number in command_number:
             print(history[int(number)])
+
+for command in history:
+    if command[0] == "saldo":
+        balance_change = command[1]
+        if balance + balance_change < 0:
+            print("Błąd. Za mało środków na koncie.")
+            break
+        balance += balance_change
+    elif command[0] == "zakup":
+        purchase_price = command[2] * command[3]
+        if balance < purchase_price:
+            print("Błąd, nie stać cię na zakup.")
+            break
+        balance -= purchase_price
+        names.append(command[1])
+        amounts.append(command[3])
+        for idx in range(len(names)):
+            warehouse[names[idx]] = amounts[idx]
+    elif command[0] == "sprzedaz":
+        sale_price = command[2] * command[3]
+        balance += sale_price
+        for idx in warehouse:
+            if idx == command[1]:
+                old_value = warehouse[idx]
+                new_value = old_value - command[3]
+                amounts.remove(command[3])
+                amounts.append(new_value)
+                for idx in range(len(names)):
+                    warehouse[names[idx]] = amounts[idx]
+            else:
+                print("Nie posiadasz wystarczającej ilości.")
+                break
