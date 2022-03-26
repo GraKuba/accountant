@@ -83,3 +83,15 @@ for command in history:
             else:
                 print("Nie posiadasz wystarczającej ilości.")
                 break
+
+if action == "saldo":
+    print(balance)
+elif action == "zakup":
+    print(history)
+elif action == "sprzedaz":
+    print(history)
+elif action == "magazyn":
+    print(warehouse)
+elif action == "konto":
+    print(balance)
+
