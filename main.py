@@ -33,13 +33,11 @@ while True:
 action = sys.argv[1]
 if len(sys.argv) > 2:
     if action == "saldo":
-        name = action
         balance_change = int(sys.argv[2])
         comment = sys.argv[3]
         new_tuple = action, balance_change, comment
         history.append(new_tuple)
     elif action == "zakup" or action == "sprzedaz":
-        name = action
         product_name = sys.argv[2]
         product_price = int(sys.argv[3])
         product_amount = int(sys.argv[4])
@@ -93,4 +91,3 @@ elif action == "magazyn":
     print(warehouse)
 elif action == "konto":
     print(balance)
-
