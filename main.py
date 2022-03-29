@@ -30,7 +30,6 @@ while True:
             break
 
 # POBIERZ DANE Z TERMINALA O DANEJ AKCJI
-new_tuple = ()
 action = sys.argv[1]
 if len(sys.argv) > 2:
     if action == "saldo":
